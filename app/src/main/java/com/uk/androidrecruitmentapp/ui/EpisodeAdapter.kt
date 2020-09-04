@@ -1,19 +1,17 @@
 package com.uk.androidrecruitmentapp.ui
 
-import androidx.recyclerview.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.uk.androidrecruitmentapp.R
 import com.uk.androidrecruitmentapp.data.local.Episodes
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.view_item.episode_name
+import kotlinx.android.synthetic.main.row_episode.episode_name
 
 class EpisodeAdapter(private val episodes: Episodes) : androidx.recyclerview.widget.RecyclerView.Adapter<EpisodeAdapter.EpisodeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EpisodeViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.row_episode, parent, false)
         return EpisodeViewHolder(view)
     }
 

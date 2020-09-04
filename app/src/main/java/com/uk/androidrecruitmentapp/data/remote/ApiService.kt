@@ -7,5 +7,5 @@ import retrofit2.http.GET
 interface ApiService {
 
     @GET("episode/")
-    fun getPeople(): Single<Episodes>
+    fun getAllEpisodes(): Single<Episodes>
 }

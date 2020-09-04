@@ -1,4 +1,4 @@
-package com.uk.androidrecruitmentapp.di
+package com.uk.androidrecruitmentapp.di.module
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder

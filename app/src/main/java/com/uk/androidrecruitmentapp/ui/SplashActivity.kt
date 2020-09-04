@@ -4,8 +4,9 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import com.uk.androidrecruitmentapp.R
+import dagger.android.support.DaggerAppCompatActivity
 
-class SplashActivity : Activity() {
+class SplashActivity : DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
