@@ -1,8 +1,10 @@
 package com.uk.androidrecruitmentapp.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.uk.androidrecruitmentapp.R
@@ -21,11 +23,14 @@ class EpisodesActivity : DaggerAppCompatActivity() {
 
     private val viewModel: EpisodesViewModel by viewModels { vmFactory }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
       //  ARApplication.apiComponent.inject(this)
+        viewModel.getAllEpisodes()
+        viewModel.data.observe(this, Observer { episodes ->
+            Log.d("TAG", "${episodes.results}")
+        })
 
       //  initAdapter()
       //  fetchEpisodeFromRemote()

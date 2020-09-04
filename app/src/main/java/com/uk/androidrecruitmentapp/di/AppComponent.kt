@@ -4,9 +4,7 @@ import android.app.Application
 import com.uk.androidrecruitmentapp.MyApplication
 import com.uk.androidrecruitmentapp.di.module.ApiModule
 import com.uk.androidrecruitmentapp.di.module.AppModule
-import com.uk.androidrecruitmentapp.di.module.ViewModelAssistedFactoriesModule
 import com.uk.androidrecruitmentapp.di.module.ViewModelModule
-import com.uk.androidrecruitmentapp.ui.EpisodesActivity
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -20,7 +18,6 @@ import javax.inject.Singleton
             ActivityBuilder::class,
             AppModule::class,
             ApiModule::class,
-            ViewModelAssistedFactoriesModule::class,
             ViewModelModule::class
         ]
 )
@@ -33,8 +30,6 @@ interface AppComponent : AndroidInjector<MyApplication> {
 
         fun build(): AppComponent
     }
-
-   // fun inject(activity: EpisodesActivity)
 
     fun bindingComponentBuilder(): BindingComponent.Builder
 }
