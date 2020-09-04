@@ -28,8 +28,16 @@ class EpisodesActivity : DaggerAppCompatActivity() {
         setContentView(R.layout.main_activity)
       //  ARApplication.apiComponent.inject(this)
         viewModel.getAllEpisodes()
+        viewModel.getAllCharacters()
+        viewModel.getAllLocations()
         viewModel.data.observe(this, Observer { episodes ->
             Log.d("TAG", "${episodes.results}")
+        })
+        viewModel.data2.observe(this, Observer { characters ->
+            Log.d("TAG", "${characters.results}")
+        })
+        viewModel.data3.observe(this, Observer { location ->
+            Log.d("TAG", "${location.results}")
         })
 
       //  initAdapter()
