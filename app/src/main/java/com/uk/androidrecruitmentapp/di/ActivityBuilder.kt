@@ -13,10 +13,6 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector
     abstract fun bindSplashActivity(): SplashActivity
 
-    @ActivityScoped
-    @ContributesAndroidInjector
-    abstract fun bindEpisodesActivity(): EpisodesActivity
-
     @FragmentScoped
     @ContributesAndroidInjector
     abstract fun bindEpisodesFragment(): EpisodesFragment

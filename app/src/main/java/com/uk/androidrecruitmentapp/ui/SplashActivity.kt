@@ -15,6 +15,6 @@ class SplashActivity : DaggerAppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        startActivity(Intent(this, EpisodesActivity::class.java))
+        startActivity(Intent(this, MainActivity::class.java))
     }
 }
