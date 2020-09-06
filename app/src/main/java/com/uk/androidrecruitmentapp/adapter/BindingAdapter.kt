@@ -1,5 +1,6 @@
 package com.uk.androidrecruitmentapp.adapter
 
+import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
@@ -22,3 +23,10 @@ fun ImageView.setAvatar(url: String) {
             .centerCrop()
             .into(this)
 }
+
+@set:BindingAdapter("visible")
+var View.visible
+    get() = visibility == View.VISIBLE
+    set(value) {
+        visibility = if (value) View.VISIBLE else View.GONE
+    }

@@ -1,7 +1,5 @@
-package com.uk.androidrecruitmentapp.data.remote
+package com.uk.androidrecruitmentapp.net
 
-
-import com.uk.androidrecruitmentapp.data.local.Episodes
 import com.uk.androidrecruitmentapp.model.ResponseCharacter
 import com.uk.androidrecruitmentapp.model.ResponseEpisode
 import com.uk.androidrecruitmentapp.model.ResponseLocation

@@ -8,4 +8,17 @@
     <string name="row_episode_episode_title">Episode title:</string>
     <string name="row_location_type">Type:</string>
     <string name="row_location_dimension">Dimension:</string>
+
+    <!-- Errors -->
+    <string name="no_internet_exception">No internet connection!</string>
+    <string name="unknown_host_exception">Cannot connect to server!</string>
+    <string name="null_field_error">All fields must be filled!</string>
+    <string name="login_unauthorized">Credentials not valid</string>
+    <string name="places_api_error">Cannot load suggestions</string>
+    <string name="server_error">Server error</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="server_unavailable">Server unavailable. Please check your connection</string>
+    <string name="ticket_is_too_old">Ticket is too old (max 30 min.)</string>
+    <string name="ticket_was_already_cancelled">Ticket was already cancelled</string>
+    <string name="failed_attachment_preview">File cannot be opened</string>
 </resources>
