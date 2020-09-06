@@ -89,7 +89,7 @@ class LocationsFragment : DaggerFragment(R.layout.fragment_locations), LocationA
             locations_layout.snackbar(messageId, true)
 
     override fun onItemSelected(position: Int, item: Location) {
-        TODO("Not yet implemented")
+        TODO("Action to details")
     }
 
 }

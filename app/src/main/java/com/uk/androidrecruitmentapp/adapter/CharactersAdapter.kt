@@ -1,22 +1,17 @@
 package com.uk.androidrecruitmentapp.adapter
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import com.uk.androidrecruitmentapp.model.Character
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
-import com.uk.androidrecruitmentapp.R
+import androidx.recyclerview.widget.RecyclerView
 import com.uk.androidrecruitmentapp.databinding.RowCharacterBinding
-import com.uk.androidrecruitmentapp.databinding.RowEpisodeBinding
+import com.uk.androidrecruitmentapp.model.Character
 
 class CharactersAdapter(private val interaction: Interaction? = null) :
         RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-
     private val differ = AsyncListDiffer(this, DIFF_CALLBACK)
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -61,10 +56,10 @@ class CharactersAdapter(private val interaction: Interaction? = null) :
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Character>() {
 
             override fun areItemsTheSame(oldItem: Character, newItem: Character): Boolean =
-                oldItem.id == newItem.id
+                    oldItem.id == newItem.id
 
             override fun areContentsTheSame(oldItem: Character, newItem: Character): Boolean =
-                oldItem == newItem
+                    oldItem == newItem
 
         }
     }

@@ -16,8 +16,3 @@ fun View.snackbar(@StringRes messageID: Int, short: Boolean) {
             if (short) Snackbar.LENGTH_SHORT else Snackbar.LENGTH_LONG
     ).show()
 }
-
-fun View.snackbar(message: String, short: Boolean) {
-    Snackbar.make(this, message, if (short) Snackbar.LENGTH_SHORT else Snackbar.LENGTH_LONG)
-            .show()
-}

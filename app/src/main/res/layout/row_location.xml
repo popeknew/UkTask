@@ -12,7 +12,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/half_margin"
         app:cardCornerRadius="@dimen/card_view_corner_radius"
         app:cardElevation="@dimen/card_view_elevation">
@@ -23,7 +23,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/name_label"
-                style="@style/RowLocationTitleStyle"
+                style="@style/PrimaryTitleStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/half_margin"

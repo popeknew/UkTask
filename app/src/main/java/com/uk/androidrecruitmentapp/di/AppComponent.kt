@@ -30,6 +30,4 @@ interface AppComponent : AndroidInjector<MyApplication> {
 
         fun build(): AppComponent
     }
-
-    fun bindingComponentBuilder(): BindingComponent.Builder
 }

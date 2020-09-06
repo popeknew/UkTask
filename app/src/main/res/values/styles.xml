@@ -6,7 +6,9 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>
+        <item name="bottomNavigationStyle">
+            @style/Widget.MaterialComponents.BottomNavigationView.Colored
+        </item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -25,7 +27,7 @@
         <item name="android:textColor">@android:color/holo_green_dark</item>
     </style>
 
-    <style name="RowLocationTitleStyle" parent="Widget.MaterialComponents.TextView">
+    <style name="PrimaryTitleStyle" parent="Widget.MaterialComponents.TextView">
         <item name="android:textSize">@dimen/row_locations_text_size</item>
         <item name="android:textColor">@android:color/holo_orange_dark</item>
     </style>

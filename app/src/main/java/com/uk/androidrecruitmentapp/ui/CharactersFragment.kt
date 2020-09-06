@@ -35,7 +35,7 @@ class CharactersFragment : DaggerFragment(R.layout.fragment_characters), Charact
     private lateinit var endlessRecyclerViewScrollListener: EndlessRecyclerViewScrollListener
 
     private val charactersObserver = Observer<Response<ResponseCharacter>> { response ->
-        when(response) {
+        when (response) {
             is Response.Success -> {
                 with(viewModel) {
                     allPages = response.data.info.pages
@@ -79,7 +79,7 @@ class CharactersFragment : DaggerFragment(R.layout.fragment_characters), Charact
     }
 
     private fun handleError(error: MyError) {
-        when(error) {
+        when (error) {
             is MyError.ServerError -> showSnackBar(R.string.server_error)
             is MyError.ServerUnavailable -> showSnackBar(R.string.server_unavailable)
             else -> showSnackBar(R.string.something_went_wrong)
@@ -90,6 +90,6 @@ class CharactersFragment : DaggerFragment(R.layout.fragment_characters), Charact
             characters_layout.snackbar(messageId, true)
 
     override fun onItemSelected(position: Int, item: Character) {
-        TODO("Not yet implemented")
+        TODO("Action to details")
     }
 }

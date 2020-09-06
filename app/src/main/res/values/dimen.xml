@@ -13,7 +13,7 @@
 
     <!-- Row Characters -->
     <dimen name="row_characters_image_margin">5dp</dimen>
-    <dimen name="row_character_card_height">120dp</dimen>
+    <dimen name="row_character_card_height">300dp</dimen>
 
     <!-- Row Locations -->
     <dimen name="row_locations_text_size">24sp</dimen>

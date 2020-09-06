@@ -2,12 +2,12 @@ package com.uk.androidrecruitmentapp.di.module
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.uk.androidrecruitmentapp.net.ApiService
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
@@ -34,16 +34,15 @@ class ApiModule {
 
     @Provides
     @Singleton
-    internal fun providesRx2JavaCallAdapterFactory(): RxJava2CallAdapterFactory {
-        return RxJava2CallAdapterFactory.create()
-    }
+    internal fun provideCoroutineCallAdapterFactory(): CoroutineCallAdapterFactory =
+            CoroutineCallAdapterFactory()
 
     @Provides
     @Singleton
     internal fun providesRetrofit(gsonConverterFactory: GsonConverterFactory, okHttpClient: OkHttpClient,
-                                  rxJava2CallAdapterFactory: RxJava2CallAdapterFactory): Retrofit {
+                                  coroutineCallAdapterFactory: CoroutineCallAdapterFactory): Retrofit {
         return Retrofit.Builder().addConverterFactory(gsonConverterFactory)
-                .addCallAdapterFactory(rxJava2CallAdapterFactory)
+                .addCallAdapterFactory(coroutineCallAdapterFactory)
                 .baseUrl(BASE_URL)
                 .client(okHttpClient)
                 .build()

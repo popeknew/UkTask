@@ -73,13 +73,13 @@ class EpisodesFragment : DaggerFragment(R.layout.fragment_episodes), EpisodesAda
         endlessRecyclerViewScrollListener =
                 object : EndlessRecyclerViewScrollListener(layoutManager) {
                     override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView) {
-                            viewModel.getEpisodesFromNextPage()
+                        viewModel.getEpisodesFromNextPage()
                     }
                 }
     }
 
     private fun handleError(error: MyError) {
-        when(error) {
+        when (error) {
             is MyError.ServerError -> showSnackBar(R.string.server_error)
             is MyError.ServerUnavailable -> showSnackBar(R.string.server_unavailable)
             else -> showSnackBar(R.string.something_went_wrong)
@@ -90,6 +90,6 @@ class EpisodesFragment : DaggerFragment(R.layout.fragment_episodes), EpisodesAda
             episodes_layout.snackbar(messageId, true)
 
     override fun onItemSelected(position: Int, item: Episode) {
-        TODO("Not yet implemented")
+        TODO("Action to details")
     }
 }

@@ -2,7 +2,6 @@ package com.uk.androidrecruitmentapp.ext
 
 import com.uk.androidrecruitmentapp.error.ApiException
 import retrofit2.Response
-import java.lang.Exception
 
 @Suppress("UNCHECKED_CAST")
 fun <A : Any?> Response<A>.bodyOrException(): A {

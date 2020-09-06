@@ -56,7 +56,7 @@ class EpisodesAdapter(private val interaction: Interaction? = null) :
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Episode>() {
 
             override fun areItemsTheSame(oldItem: Episode, newItem: Episode): Boolean =
-                oldItem.id == newItem.id
+                    oldItem.id == newItem.id
 
             override fun areContentsTheSame(oldItem: Episode, newItem: Episode): Boolean =
                     oldItem == newItem

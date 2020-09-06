@@ -6,7 +6,6 @@ sealed class Response<out T> {
 
     data class Success<out T>(val data: T) : Response<T>()
     data class Failure(val error: MyError) : Response<Nothing>()
-    data class Loading(val isLoading: Boolean) : Response<Nothing>()
 }
 
 fun <T : Any, R> Response<T>.doOnSuccess(action: (T) -> R): Response<T> = when (this) {
