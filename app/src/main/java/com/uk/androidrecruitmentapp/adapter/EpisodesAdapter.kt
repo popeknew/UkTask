@@ -58,7 +58,6 @@ class EpisodesAdapter(private val interaction: Interaction? = null) :
             override fun areItemsTheSame(oldItem: Episode, newItem: Episode): Boolean =
                 oldItem.id == newItem.id
 
-
             override fun areContentsTheSame(oldItem: Episode, newItem: Episode): Boolean =
                     oldItem == newItem
 

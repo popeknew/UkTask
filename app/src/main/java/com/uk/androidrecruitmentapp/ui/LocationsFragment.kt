@@ -6,6 +6,8 @@ import androidx.annotation.StringRes
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.uk.androidrecruitmentapp.R
 import com.uk.androidrecruitmentapp.adapter.LocationAdapter
 import com.uk.androidrecruitmentapp.error.MyError
@@ -14,6 +16,7 @@ import com.uk.androidrecruitmentapp.ext.snackbar
 import com.uk.androidrecruitmentapp.model.Location
 import com.uk.androidrecruitmentapp.model.ResponseLocation
 import com.uk.androidrecruitmentapp.net.Response
+import com.uk.androidrecruitmentapp.utils.EndlessRecyclerViewScrollListener
 import com.uk.androidrecruitmentapp.vm.LocationsViewModel
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_locations.locations_layout
@@ -28,27 +31,50 @@ class LocationsFragment : DaggerFragment(R.layout.fragment_locations), LocationA
 
     private val viewModel: LocationsViewModel by viewModels { vmFactory }
     private lateinit var adapter: LocationAdapter
+    private lateinit var layoutManager: LinearLayoutManager
+    private lateinit var endlessRecyclerViewScrollListener: EndlessRecyclerViewScrollListener
 
     private val locationObserver = Observer<Response<ResponseLocation>> { response ->
         when (response) {
             is Response.Success -> {
-                adapter.submitList(response.data.results)
-                progress_bar.setVisible(false)
+                with(viewModel) {
+                    allPages = response.data.info.pages
+                    locationList.addAll(response.data.results)
+                    adapter.submitList(locationList)
+                    adapter.notifyDataSetChanged()
+                }
             }
             is Response.Failure -> handleError(response.error)
         }
+        progress_bar.setVisible(false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        layoutManager = LinearLayoutManager(context)
+        initializeEndlessScrollListener()
         setupRecyclerView()
+
         viewModel.locationsData.observe(viewLifecycleOwner, locationObserver)
     }
 
     private fun setupRecyclerView() {
         adapter = LocationAdapter(this)
-        locations_recycler_view.adapter = adapter
+        with(locations_recycler_view) {
+            adapter = this@LocationsFragment.adapter
+            layoutManager = this@LocationsFragment.layoutManager
+            addOnScrollListener(endlessRecyclerViewScrollListener)
+        }
+    }
+
+    private fun initializeEndlessScrollListener() {
+        endlessRecyclerViewScrollListener =
+                object : EndlessRecyclerViewScrollListener(layoutManager) {
+                    override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView) {
+                        viewModel.getLocationsFromNextPage()
+                    }
+                }
     }
 
     private fun handleError(error: MyError) {

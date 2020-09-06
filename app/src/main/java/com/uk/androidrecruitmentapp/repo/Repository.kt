@@ -2,24 +2,21 @@ package com.uk.androidrecruitmentapp.repo
 
 import com.uk.androidrecruitmentapp.ext.bodyOrException
 import com.uk.androidrecruitmentapp.net.ApiService
-import com.uk.androidrecruitmentapp.net.doOnSuccess
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 class Repository(private val apiService: ApiService) : BaseRepository() {
 
-    suspend fun getAllEpisodes() =
+    suspend fun getEpisodes(pageNumber: Int) =
             safeCall {
-                apiService.getAllEpisodes().bodyOrException()
+                apiService.getEpisodes(pageNumber).bodyOrException()
             }
 
-    suspend fun getAllCharacters() =
+    suspend fun getCharacter(pageNumber: Int) =
             safeCall {
-                apiService.getAllCharacters().bodyOrException()
+                apiService.getCharacters(pageNumber).bodyOrException()
             }
 
-    suspend fun getAllLocations() =
+    suspend fun getLocations(pageNumber: Int) =
             safeCall {
-                apiService.getAllLocations().bodyOrException()
+                apiService.getLocations(pageNumber).bodyOrException()
             }
 }

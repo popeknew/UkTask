@@ -60,13 +60,11 @@ class CharactersAdapter(private val interaction: Interaction? = null) :
 
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Character>() {
 
-            override fun areItemsTheSame(oldItem: Character, newItem: Character): Boolean {
-                TODO("not implemented")
-            }
+            override fun areItemsTheSame(oldItem: Character, newItem: Character): Boolean =
+                oldItem.id == newItem.id
 
-            override fun areContentsTheSame(oldItem: Character, newItem: Character): Boolean {
-                TODO("not implemented")
-            }
+            override fun areContentsTheSame(oldItem: Character, newItem: Character): Boolean =
+                oldItem == newItem
 
         }
     }

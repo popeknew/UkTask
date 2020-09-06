@@ -5,15 +5,16 @@ import com.uk.androidrecruitmentapp.model.ResponseEpisode
 import com.uk.androidrecruitmentapp.model.ResponseLocation
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface ApiService {
 
     @GET("episode/")
-    suspend fun getAllEpisodes(): Response<ResponseEpisode>
+    suspend fun getEpisodes(@Query("page") page: Int): Response<ResponseEpisode>
 
     @GET("character/")
-    suspend fun getAllCharacters(): Response<ResponseCharacter>
+    suspend fun getCharacters(@Query("page") page: Int): Response<ResponseCharacter>
 
     @GET("location/")
-    suspend fun getAllLocations(): Response<ResponseLocation>
+    suspend fun getLocations(@Query("page") page: Int): Response<ResponseLocation>
 }
